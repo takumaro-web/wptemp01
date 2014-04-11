@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+$color01: #003987;
+$color02: #fff;
+
+/* ===========================================================
+
+   [layOut] 
+
+=========================================================== */
+
+.header-nav ul{
+	@include clearfix;
+	background: #000;
+	@include opacity(0.6);
+	display: none;
+	li{
+		width: 33%;
+		float: left;
+		text-align: center;
+		@include box-sizing(border-box);
+		a{
+			@include fontsize(12);
+			padding: 8px 5px;
+			display: block;
+			color: $color02;
+		}
+	}
+	li:nth-child(3n-1){
+		border-right: 1px dotted $color01;
+		border-left: 1px dotted $color01;
+	}
+}
+
+.btn-menu {
+	text-align: right;
+}

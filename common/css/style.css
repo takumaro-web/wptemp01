@@ -1,0 +1,529 @@
+@charset "UTF-8";
+                             /*
+$sprites: sprite-map("sprites/*.png");
+$sprites-img:sprite-url($sprites);
+
+@mixin sprite-background($name) {
+background-image: $sprites;
+background-repeat: no-repeat;
+overflow: hidden;
+content: "";
+position: absolute;
+display: block;
+height: image-height(sprite-file($sprites, $name)) / 2;
+width: image-width(sprite-file($sprites, $name)) / 2;
+$ypos: round(nth(sprite-position($sprites, $name), 2) / 2);
+background-position: 0 $ypos;
+@include background-size(39px auto);
+}
+
+@mixin sprite-background-ajust($name) {
+background-image: $sprites;
+background-repeat: no-repeat;
+$ypos: round(nth(sprite-position($sprites, $name), 2) / 2);
+background-position: 0 $ypos;
+@include background-size(39px auto);
+}
+
+*/
+/* ===========================================================
+
+   [Setting] 
+
+=========================================================== */
+/* -----------------------------------------------------------
+    01. Default Style Reset
+----------------------------------------------------------- */
+html, body,
+div, span,
+object, iframe,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+a, abbr, acronym, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, strong, sub, sup, tt, var,
+ul, ol, li, dl, dt, dd,
+form, fieldset, legend, label,
+table, caption, tbody, tfoot, thead, tr, th, td,
+header, main, nav, footer, section {
+  margin: 0;
+  padding: 0;
+}
+
+header, nav, footer {
+  display: block;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: 100%;
+  font-weight: bold;
+}
+
+img {
+  border: none;
+  vertical-align: bottom;
+}
+
+em,
+strong {
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+}
+
+table {
+  border: none;
+  border-spacing: 0;
+  font-size: 100%;
+}
+
+th,
+td {
+  border: none;
+  border-spacing: 0;
+  vertical-align: top;
+}
+
+caption,
+th {
+  font-weight: normal;
+  text-align: left;
+}
+
+ul,
+ol,
+dl {
+  list-style: none;
+}
+
+input,
+select,
+textarea {
+  vertical-align: middle;
+}
+
+hr {
+  display: none;
+}
+
+/* -----------------------------------------------------------
+    02. Basic Style
+----------------------------------------------------------- */
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  color: #333333;
+  font-size: 16px;
+  font-size: 1rem;
+  -webkit-touch-callout: none;
+  overflow: hidden;
+}
+
+body,
+input,
+select,
+button,
+textarea {
+  font-family: "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+}
+
+a:link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #660066;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: #0099cc;
+  text-decoration: underline;
+}
+
+p, ul li, ol li, dl dt, dl dd,
+caption, th, td,
+input, option, textarea {
+  line-height: 1.5;
+}
+
+p, ul, ol, dl, table {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+li p,
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-weight: bold;
+}
+
+small {
+  font-size: 0.83em;
+}
+
+input[type="checkbox"]:checked + * {
+  opacity: 0.7;
+  background-color: #ffffff;
+}
+
+.col {
+  border: 0px solid rgba(0, 0, 0, 0);
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background: #ddd;
+  margin-bottom: 12px;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 960px;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-visual-wrap {
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+    /* 1. 2 Column Grid 0px - 319px 
+
+    Span 1:   50%
+    Span 2:   100%
+    
+    ----------------------------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 319px) {
+  .row {
+    margin-left: -12px;
+  }
+
+  .col {
+    border-left-width: 12px;
+    padding: 0 12px;
+    height: 100px;
+  }
+
+  /* --- Gridpak variables ---*/
+  /*
+  Add your semantic classnames in alongside their corresponding spans here. e.g.
+  
+  .span_3,
+  .my_semantic_class_name {
+      ...
+  }
+  
+  */
+  .span_1 {
+    width: 50%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+  }
+
+  /* Using .col to target ALL columns and make them 100% */
+  .span_2,
+  .col {
+    margin-left: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+    /* 2. 6 Column Grid 320px - 919px 
+
+    Span 1:   15.0%
+    Span 2:   32.0%
+    Span 3:   49.0%
+    Span 4:   66.0%
+    Span 5:   83.0%
+    Span 6:   100%
+    
+    ----------------------------------------------------------------------------- */
+@media screen and (min-width: 320px) and (max-width: 919px) {
+  .col {
+    margin-left: 2%;
+    padding: 0 2%;
+  }
+
+  /* --- Gridpak variables ---*/
+  .row .col:first-child {
+    margin-left: 0;
+  }
+
+  /*
+  Add your semantic classnames in alongside their corresponding spans here. e.g.
+  
+  .span_3,
+  .my_semantic_class_name {
+      ...
+  }
+  
+  */
+  .span_1 {
+    width: 15%;
+    border-left-width: 0;
+    padding: 0 2%;
+    margin-left: 2%;
+  }
+
+  /*
+  Here we have used our semantic names 'navigation' and 'media_block' and appended
+  them next to their corresponding widths
+  */
+  .span_2,
+  .navigation,
+  .media_block {
+    width: 32%;
+    border-left-width: 0;
+    padding: 0 2%;
+    margin-left: 2%;
+  }
+
+  .navigation {
+    height: 400px;
+  }
+
+  .span_3 {
+    width: 49%;
+    border-left-width: 0;
+    padding: 0 2%;
+    margin-left: 2%;
+  }
+
+  .span_4,
+  .main_content {
+    width: 66%;
+    border-left-width: 0;
+    padding: 0 2%;
+    margin-left: 2%;
+    height: 400px;
+  }
+
+  .span_5 {
+    width: 83%;
+    border-left-width: 0;
+    padding: 0 2%;
+    margin-left: 2%;
+  }
+
+  .span_6,
+  .footer {
+    margin-left: 0;
+    width: 100%;
+    height: 100px;
+    margin-left: 0;
+  }
+
+  .header,
+  .main-visual {
+    margin-left: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+  .header img,
+  .main-visual img {
+    width: 100%;
+  }
+}
+    /* 3. 12 Column Grid 920px - Infinity 
+
+    Span 1:   8.33333333333%
+    Span 2:   16.6666666667%
+    Span 3:   25.0%
+    Span 4:   33.3333333333%
+    Span 5:   41.6666666667%
+    Span 6:   50.0%
+    Span 7:   58.3333333333%
+    Span 8:   66.6666666667%
+    Span 9:   75.0%
+    Span 10:   83.3333333333%
+    Span 11:   91.6666666667%
+    Span 12:   100%
+    
+    ----------------------------------------------------------------------------- */
+@media screen and (min-width: 920px) {
+  .row {
+    margin-left: -12px;
+  }
+
+  .col {
+    border-left-width: 12px;
+    padding: 0 12px;
+  }
+
+  /* --- Gridpak variables ---*/
+  /*
+  Add your semantic classnames in alongside their corresponding spans here. e.g.
+  .span_3,
+  .my_semantic_class_name {
+      ...
+  }
+  
+  */
+  .span_1 {
+    width: 8.33333%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+  }
+
+  .span_2 {
+    width: 16.66667%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+  }
+
+  .span_3,
+  .related_content {
+    width: 25%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+    height: 400px;
+  }
+
+  .span_4,
+  .media_block,
+  .navigation {
+    width: 33.33333%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+    height: 80px;
+  }
+
+  .navigation {
+    height: 400px;
+  }
+
+  .span_5 {
+    width: 41.66667%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+  }
+
+  .span_6 {
+    width: 50%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+  }
+
+  .span_7 {
+    width: 58.33333%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+  }
+
+  .span_8,
+  .main_content {
+    width: 66.66667%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+    height: 400px;
+  }
+
+  .span_9 {
+    width: 75%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+  }
+
+  .span_10 {
+    width: 83.33333%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+  }
+
+  .span_11 {
+    width: 91.66667%;
+    border-left-width: 12px;
+    padding: 0 12px;
+    margin-left: 0;
+  }
+
+  .span_12,
+  .footer {
+    margin-left: 0;
+    width: 100%;
+    margin-left: 0;
+    height: 100px;
+  }
+
+  .header,
+  .main-visual {
+    margin-left: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .main-visual {
+    text-align: center;
+  }
+}
+/* ===========================================================
+
+   [layOut] 
+
+=========================================================== */
+.header-nav ul {
+  background: #000;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  display: none;
+}
+.header-nav ul:before, .header-nav ul:after {
+  content: " ";
+  display: table;
+}
+.header-nav ul:after {
+  clear: both;
+}
+.header-nav ul li {
+  width: 33%;
+  float: left;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.header-nav ul li a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 8px 5px;
+  display: block;
+  color: white;
+}
+.header-nav ul li:nth-child(3n-1) {
+  border-right: 1px dotted #003987;
+  border-left: 1px dotted #003987;
+}
+
+.btn-menu {
+  text-align: right;
+}
